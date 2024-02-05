@@ -1,0 +1,53 @@
+@page
+
+@{
+    ViewData["Title"] = "Razor";
+    string[] courses= {"Webbutveckling I", "Webbutveckling II", "Webbutveckling III", "Introduktion till programmering i JavaScript", "Grafisk teknik för webb", "Webbanvändbarhet", "Databaser", "Webbutveckling CMS", "Projektledning", "Programmering i C#"};
+}
+
+
+<h1>Razor</h1>
+<h2>Information</h2>
+
+<h2>Datum/klockslag</h2>
+<p>För att skriva ut dagens datum och klockslag har jag använt mig av DateTime.Now.</p>
+
+    @{
+        //Hämtar dagens datum och nuvarande klockslag
+        var date= DateTime.Now;
+
+        //Hämtar nuvarande veckodag och sparar som string
+        var day = DateTime.Today.DayOfWeek.ToString();
+    }
+
+    <p>Dagens datum är: @date</p>
+  
+    <!--If-sats för att kontollera om dagens veckodag är måndag eller inte-->
+    @if (day.ToLower()=="monday") //gör om day till lowercase
+    {
+        <p>Idag är det måndag!</p>
+    }
+    else{
+        <p>Idag är det inte måndag!</p>
+    }
+
+
+
+
+
+<h2>Kurser jag läst</h2>
+<p>Kurserna ligger i en list vid namn "courses". För att skriva ut kurserna används en foreach-loop som ligger i en unordered list</p>
+    <!--Loop for att skriva ut alla kurser som finns i listan course-->
+    <ul>
+        @foreach (var course in courses)
+        {
+            <li>@course</li>
+        }
+    </ul>
+    <div>
+
+    
+</div>
+    
+
+
